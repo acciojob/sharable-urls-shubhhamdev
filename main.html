@@ -1,8 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <script type="text/javascript" src="./script.js">
-</script>
-  </body>
+<head>
+  <title>URL Manipulation</title>
+</head>
+<body>
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
 
+    <label for="year">Year:</label>
+    <input type="number" id="year" name="year" required><br><br>
+
+    <input type="button" id="button" value="Submit">
+  </form>
+
+  <h3 id="url">https://localhost:8080/</h3>
+
+  <script>
+    document.getElementById("button").addEventListener("click", function() {
+      var name = document.getElementById("name").value;
+      var year = document.getElementById("year").value;
+      var url = "https://localhost:8080/?name=" + encodeURIComponent(name) + "&year=" + year;
+      document.getElementById("url").textContent = url;
+    });
+  </script>
+</body>
 </html>
